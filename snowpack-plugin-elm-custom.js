@@ -122,7 +122,6 @@ async function compile(filePath, isDev, isHmrEnabled, options) {
     const optimize =
         options.optimize === 'always' || (!isDev && options.optimize === 'build');
 
-
     const file = path.relative(options.root, filePath);
 
     let iife = await elm
@@ -140,7 +139,7 @@ async function compile(filePath, isDev, isHmrEnabled, options) {
 
     // custom code - the alteration from the original snowpack-plugin-elm
     if (optimize) {
-        iife = await ElmOptimizeLevel2.transform(iife, file)
+        iife = await ElmOptimizeLevel2.transform(iife, file);
     }
     // end custom code
 
@@ -176,10 +175,9 @@ async function toHMR(step0, options) {
 async function elmHotInject(originalElmCodeJS, options) {
     // copied from https://github.com/klazuka/elm-hot/blob/efe9db967496415944246006b4e711c0aed1e777/src/inject.js
 
-    const hmrCode = await fs.readFile(
-        path.join(__dirname, 'hmr.js'),
-        { encoding: 'utf8' }
-    );
+    const hmrCode = await fs.readFile(path.join(__dirname, 'hmr.js'), {
+        encoding: 'utf8',
+    });
 
     // first, verify that we have not been given Elm 0.18 code
     if (
@@ -228,8 +226,8 @@ async function elmHotInject(originalElmCodeJS, options) {
  */
 function toESM(iife, options) {
     // custom code start
-    const startString = options.optimize ? 'function $$Record1(' : 'function F('
-    const endString = options.optimize ? ');\n}' : ');}'
+    const startString = options.optimize ? 'function $$Record1(' : 'function F(';
+    const endString = options.optimize ? ');\n}' : ');}';
     // custom code end
 
     // 1. Remove `(function(scope){\n"use strict";\n\n` at the beginning

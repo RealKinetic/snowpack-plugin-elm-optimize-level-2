@@ -34,7 +34,7 @@ if (import.meta.hot) {
                     return eval('$' + symbol);
                 default:
                     throw new Error(
-                        'Cannot resolve ' + symbol + '. Elm version unknown!',
+                        'Cannot resolve ' + symbol + '. Elm version unknown!'
                     );
             }
         } catch (e) {
@@ -194,7 +194,7 @@ if (import.meta.hot) {
                     flags,
                     path,
                     portSubscribes,
-                    portSends,
+                    portSends
                 );
                 elm = originalInit(args);
                 wrapPorts(elm, portSubscribes, portSends);
@@ -240,7 +240,7 @@ if (import.meta.hot) {
                         return;
                     }
                     verbose(
-                        `Reconnect ${handlers.length} handler(s) to port '${portName}' (${instance.path}).`,
+                        `Reconnect ${handlers.length} handler(s) to port '${portName}' (${instance.path}).`
                     );
                     handlers.forEach(function (handler) {
                         elm.ports[portName].subscribe(handler);
@@ -301,7 +301,7 @@ if (import.meta.hot) {
                                 console.warn(
                                     '[elm-hot] ports.' +
                                     portName +
-                                    '.unsubscribe: handler not subscribed',
+                                    '.unsubscribe: handler not subscribed'
                                 );
                             }
                             return unsubscribe.call(port, handler);
@@ -403,7 +403,7 @@ if (import.meta.hot) {
         init,
         update,
         subscriptions,
-        stepperBuilder,
+        stepperBuilder
     ) {
         var instance = initializingInstance || swappingInstance;
         var tryFirstRender = !!swappingInstance;
@@ -450,7 +450,7 @@ if (import.meta.hot) {
                             '[elm-hot] Hot-swapping ' +
                             instance.path +
                             ' not possible: ' +
-                            error,
+                            error
                         );
                         oldModel = newModel;
                     }
@@ -481,7 +481,7 @@ if (import.meta.hot) {
                         '[elm-hot] Hot-swapping ' +
                         instance.path +
                         ' is not possible, please reload page. Error: ' +
-                        e.message,
+                        e.message
                     );
                 }
             } else {
@@ -503,7 +503,7 @@ if (import.meta.hot) {
             hookedInit,
             update,
             subscriptions,
-            hookedStepperBuilder,
+            hookedStepperBuilder
         );
     };
 
