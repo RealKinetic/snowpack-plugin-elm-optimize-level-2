@@ -144,13 +144,13 @@ async function compile(filePath, isDev, isHmrEnabled, options) {
     // end custom code
 
     if (isHmrEnabled) {
-        return toHMR(iife, options);
+        return toHMR(iife, options, optimize);
     } else {
-        return toESM(iife, options);
+        return toESM(iife, optimize);
     }
 }
 
-async function toHMR(step0, options) {
+async function toHMR(step0, options, optimize) {
     const debug = true;
     async function writeDebug(name, content) {
         if (!debug) return;
@@ -159,7 +159,7 @@ async function toHMR(step0, options) {
     if (debug) await fs.ensureDir(path.join(__dirname, '.temp'));
     await writeDebug('step0.js', step0);
 
-    const step1 = toESM(step0, options);
+    const step1 = toESM(step0, optimize);
     await writeDebug('step1.js', step1);
 
     const step2 = await elmHotInject(step1, options);
@@ -224,10 +224,10 @@ async function elmHotInject(originalElmCodeJS, options) {
  * Transforms the IIFE the elm compiler returns to an ES module
  * @param {string} iife - the js source code emitted from the elm compiler
  */
-function toESM(iife, options) {
+function toESM(iife, optimize) {
     // custom code start
-    const startString = options.optimize ? 'function $$Record1(' : 'function F(';
-    const endString = options.optimize ? ');\n}' : ');}';
+    const startString = optimize ? 'function $$Record1(' : 'function F(';
+    const endString = optimize ? ');\n}' : ');}';
     // custom code end
 
     // 1. Remove `(function(scope){\n"use strict";\n\n` at the beginning

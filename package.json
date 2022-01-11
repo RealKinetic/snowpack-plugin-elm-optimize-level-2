@@ -1,6 +1,6 @@
 {
   "name": "@witful/snowpack-plugin-elm-optimize-level-2",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "snowpack-plugin-elm-custom.js",
   "license": "MIT",
   "dependencies": {
