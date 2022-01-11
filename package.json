@@ -1,0 +1,11 @@
+{
+  "name": "@witful/snowpack-plugin-elm-optimize-level-2",
+  "version": "1.0.0",
+  "main": "snowpack-plugin-elm-custom.js",
+  "license": "MIT",
+  "dependencies": {
+    "fs-extra": "10.0.0",
+    "node-elm-compiler": "5.0.6",
+    "elm-optimize-level-2": "../elm-optimize-level-2"
+  }
+}
