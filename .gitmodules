@@ -1,0 +1,3 @@
+[submodule "elm-optimize-level-2"]
+	path = elm-optimize-level-2
+	url = git@github.com:RealKinetic/elm-optimize-level-2.git
