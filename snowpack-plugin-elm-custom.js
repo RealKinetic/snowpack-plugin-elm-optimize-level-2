@@ -139,7 +139,7 @@ async function compile(filePath, isDev, isHmrEnabled, options) {
 
     // custom code - the alteration from the original snowpack-plugin-elm
     if (optimize) {
-        iife = await ElmOptimizeLevel2.transform(iife, file);
+        iife = await ElmOptimizeLevel2.transform(iife, true);
     }
     // end custom code
 
