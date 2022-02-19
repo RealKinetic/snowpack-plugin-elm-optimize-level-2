@@ -1,11 +1,28 @@
 {
-  "name": "@witful/snowpack-plugin-elm-optimize-level-2",
-  "version": "1.0.2",
-  "main": "snowpack-plugin-elm-custom.js",
-  "license": "MIT",
+  "name": "snowpack-plugin-elm-optimize-level-2",
+  "version": "1.0.0",
+  "description": "An Elm plugin for Snowpack with HMR using elm-optimize-level-2 for production builds",
+  "main": "elm-plugin.js",
+  "keywords": [
+    "Elm",
+    "Snowpack",
+    "elm-optimize-level-2"
+  ],
+  "author": "Coury Ditch",
+  "license": "BSD-3-Clause",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RealKinetic/snowpack-plugin-elm-optimize-level-2.git"
+  },
+  "files": [
+    "README.md",
+    "elm-plugin.js",
+    "hmr.js",
+    "package.json"
+  ],
   "dependencies": {
-    "fs-extra": "10.0.0",
-    "node-elm-compiler": "5.0.6",
-    "elm-optimize-level-2": "file:./elm-optimize-level-2"
+    "fs-extra": "^10.0.0",
+    "node-elm-compiler": "^5.0.6",
+    "elm-optimize-level-2": "^0.3.4"
   }
 }
